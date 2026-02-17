@@ -1,0 +1,98 @@
+/* Responsive styles for sidebar, app-shell, and flowchart */
+
+.sidebar {
+  width: 200px;
+  min-width: 160px;
+  max-width: 240px;
+  background: #f8fafc;
+  border-right: 1px solid #e5e7eb;
+  transition: width 0.2s;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    order: 0;
+  }
+  .reactflow-wrapper {
+    order: 1;
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    position: static;
+    width: 100vw;
+    font-size: 14px;
+    padding: 8px;
+  }
+  .app-shell {
+    flex-direction: column;
+  }
+  .reactflow-wrapper {
+    min-height: 300px;
+    width: 100vw;
+    overflow-x: auto;
+  }
+  .btn, select, input {
+    font-size: 16px !important;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  header {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Responsive node styles */
+
+/* All node containers */
+.node-with-icon, .node-io, .node-decision-visual, .node-terminator-visual, .node-database, .node-loop-visual, .node-server, .node-connector {
+  max-width: 98vw;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .node-with-icon, .node-io, .node-decision-visual, .node-terminator-visual, .node-database, .node-loop-visual, .node-server, .node-connector {
+    min-width: 100px !important;
+    max-width: 90vw;
+    font-size: 13px;
+    padding: 10px 8px !important;
+  }
+  .node-icon-wrapper svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .node-with-icon, .node-io, .node-decision-visual, .node-terminator-visual, .node-database, .node-loop-visual, .node-server, .node-connector {
+    min-width: 70px !important;
+    max-width: 98vw;
+    font-size: 12px;
+    padding: 6px 2px !important;
+  }
+  .node-icon-wrapper svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .node-label, .node-computer-label, .node-terminator-label, .node-database-label, .node-loop-label, .node-server-label, .node-decision-label {
+    font-size: 11px !important;
+    word-break: break-word;
+  }
+}
